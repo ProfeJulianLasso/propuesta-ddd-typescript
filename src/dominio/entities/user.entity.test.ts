@@ -7,7 +7,7 @@ describe("UserEntity", () => {
     mock.module("../value-objects/id.value-object", () => {
       return {
         IdValueObject: {
-          create: () => ({ getValue: () => 1 }),
+          create: () => ({ getValue: () => 123 }),
         },
       };
     });
@@ -27,7 +27,7 @@ describe("UserEntity", () => {
     const user = new User();
     const userEntity = user.register(nameVO);
 
-    expect(userEntity.id.getValue()).toBe(1);
+    expect(userEntity.id.getValue()).toBe(123);
     expect(userEntity.name.getValue()).toBe("name");
   });
 });
